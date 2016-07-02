@@ -175,7 +175,9 @@ extern "C" {
 
 #[cfg(windows)]
 #[link(name = "wpcap")]
-extern "C" {}
+extern "C" {
+    pub fn pcap_setmintocopy(arg1: *mut pcap_t, arg2: ::libc::c_int) -> ::libc::c_int;
+}
 
 #[cfg(not(windows))]
 #[link(name = "pcap")]
